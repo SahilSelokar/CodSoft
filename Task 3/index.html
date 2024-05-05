@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #302f31;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .calculator {
+        background-color: #1a0935;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+    }
+
+    .calculator-display {
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        text-align: right;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .calculator-button {
+        width: 60px;
+        height: 40px;
+        font-size: 18px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        cursor: pointer;
+        background-color: #fff;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .calculator-button:hover {
+        background-color: #f0f0f0;
+    }
+
+    .operator-button {
+        background-color: #f39c12;
+        color: #fff;
+    }
+
+    .operator-button:hover {
+        background-color: #e67e22;
+    }
+
+    .equals-button {
+        background-color: #2ecc71;
+        color: #fff;
+    }
+
+    .equals-button:hover {
+        background-color: #27ae60;
+    }
+
+    .clear-button {
+        background-color: #e74c3c;
+        color: #fff;
+    }
+
+    .clear-button:hover {
+        background-color: #c0392b;
+    }
+</style>
+</head>
+<body>
+<div class="calculator">
+    <input type="text" id="display" class="calculator-display" readonly>
+    <br>
+    <button class="calculator-button clear-button" onclick="clearDisplay()">C</button>
+    <button class="calculator-button" onclick="addToDisplay('7')">7</button>
+    <button class="calculator-button" onclick="addToDisplay('8')">8</button>
+    <button class="calculator-button" onclick="addToDisplay('9')">9</button>
+ 
+    <br>
+    <button class="calculator-button operator-button" onclick="addToDisplay('+')">+</button>
+    <button class="calculator-button" onclick="addToDisplay('4')">4</button>
+    <button class="calculator-button" onclick="addToDisplay('5')">5</button>
+    <button class="calculator-button" onclick="addToDisplay('6')">6</button>
+   
+    <br>
+     <button class="calculator-button operator-button" onclick="addToDisplay('-')">-</button>
+    <button class="calculator-button" onclick="addToDisplay('1')">1</button>
+    <button class="calculator-button" onclick="addToDisplay('2')">2</button>
+    <button class="calculator-button" onclick="addToDisplay('3')">3</button>
+    
+    <br>
+    <button class="calculator-button operator-button" onclick="addToDisplay('*')">*</button>
+    <button class="calculator-button" onclick="addToDisplay('0')">0</button>
+    <button class="calculator-button" onclick="addToDisplay('.')">.</button>
+    <button class="calculator-button equals-button" onclick="calculate()">=</button>
+    <button class="calculator-button operator-button" onclick="addToDisplay('/')">/</button>
+</div>
+<script>
+    function addToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+        try {
+            document.getElementById('display').value = eval(document.getElementById('display').value);
+        } catch(error) {
+            document.getElementById('display').value = 'Error';
+        }
+    }
+</script>
+</body>
+</html>
